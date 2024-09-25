@@ -1,0 +1,195 @@
+@font-face {
+  font-family: "Inter";
+  src: url(../../vendor/fonts/inter-500.woff2);
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../../vendor/fonts/roboto-900.woff2");
+}
+.recipepage {
+  display: flex;
+  flex-direction: column;
+  min-width: calc(100% - 80px);
+  min-height: 200px;
+  background-color: rgb(233, 233, 233å);
+  margin: 0;
+  padding: 40px;
+}
+
+.recipepage__author {
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+.recipepage__source {
+  font-family: "Inter";
+  display: flex;
+  height: 40px;
+  font-size: 20px;
+  align-items: center;
+  background-color: rgba(47, 113, 229, 1);
+  border: 2px solid #00000000;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.264);
+  opacity: 0.7;
+}
+
+.recipepage__source:hover {
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+  background-color: white;
+  color: rgba(47, 113, 229, 1);
+  opacity: 1;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.264);
+}
+
+.recipepage__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Roboto";
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin: 0;
+  color: black;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.recipepage__recipe {
+  display: flex;
+  color: black;
+}
+
+.recipepage__description_item {
+  font-size: 15px;
+}
+
+.recipepage__image {
+  min-width: 200px;
+  min-height: 200px;
+  max-height: 400px;
+  border-radius: 20px;
+  margin-left: 20px;
+  border: 5px solid #00000000;
+  background: linear-gradient(
+    rgba(213, 213, 213, 1) 0%,
+    rgba(166, 166, 166, 1) 100%
+  );
+  box-sizing: border-box;
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.recipepage__image:hover {
+  cursor: pointer;
+  border: 5px solid rgba(47, 113, 229, 1);
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.recipepage__steps-seq {
+  margin-top: 15px;
+  position: relative;
+}
+
+.steps-seq__step {
+  text-decoration: underline;
+  font-family: "Roboto";
+  font-size: 30px;
+  margin: 10px auto 0 0;
+}
+
+.steps-seq__arrow {
+  height: 37px;
+  width: 37px;
+  background-size: 152%;
+  background-position: center;
+  border: 2px solid black;
+  border-radius: 50px;
+  background-image: url("../../assets/arrow_icon.png");
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.steps-seq__arrow:hover {
+  background-color: rgba(47, 113, 229, 1);
+  border: 2px solid rgba(47, 113, 229, 1);
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+}
+
+.recipepage__view-options {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.recipepage__view-buttons_heading {
+  margin: 0 15px 0 0;
+  font-size: 18px;
+}
+
+.recipepage__view-buttons_steps {
+  height: 40px;
+  width: 80px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  background-color: white;
+  color: rgba(47, 113, 229, 1);
+  border: 2px solid rgba(47, 113, 229, 1);
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.recipepage__view-buttons_steps:hover {
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  color: white;
+  background-color: rgba(47, 113, 229, 1);
+}
+
+.recipepage__view-buttons_list:hover {
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  color: white;
+  background-color: rgba(47, 113, 229, 1);
+}
+
+.recipepage__view-buttons_list {
+  height: 40px;
+  border: 2px solid rgba(47, 113, 229, 1);
+  border-left: 0px;
+  color: rgba(47, 113, 229, 1);
+  width: 80px;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 50px;
+  background-color: white;
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.button_active {
+  color: white;
+  background-color: rgba(47, 113, 229, 1);
+}
+
+.arrow_back {
+  position: absolute;
+  right: 60px;
+  top: 10px;
+}
+
+.arrow_forward {
+  position: absolute;
+  right: 0px;
+  rotate: 180deg;
+  top: 10px;
+}
+
+.steps-list__step {
+  text-decoration: underline;
+  font-family: "Roboto";
+  font-size: 30px;
+  margin: 10px auto 0 0;
+}

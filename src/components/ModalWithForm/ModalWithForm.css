@@ -1,0 +1,105 @@
+.modal {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.195);
+  z-index: 9;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.modal_opened {
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  padding: 40px;
+  width: 480px;
+  background-color: white;
+  z-index: 10;
+  margin: auto 20px;
+}
+
+.modal__title {
+  font-size: 32px;
+  margin: 0 auto 40px 0;
+}
+
+.modal__submit {
+  margin-top: 20px;
+  font-size: 18px;
+  padding: 18px 32px;
+  width: max-content;
+  height: 60px;
+  background-color: rgba(47, 113, 229, 1);
+  border-radius: 30px;
+  color: white;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.264);
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border: 2px solid #00000000;
+}
+
+.modal__submit:hover {
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.264);
+  background-color: white;
+  border: 2px solid rgba(47, 113, 229, 1);
+  color: rgba(47, 113, 229, 1);
+}
+
+.modal__close-button{
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border: 2px solid #00000000;
+  position: absolute;
+  right: 40px;
+  background-color: #00000000;
+  height: 40px;
+  width: 40px;
+  right: 32px;
+  top: 32px;
+  background: center no-repeat url(../../assets/close_button.svg)
+}
+
+.modal__close-button:hover{
+  border: 2px solid rgba(47, 113, 229, 1);;
+ border-radius: 50px;
+  rotate: 360deg;
+  scale: 1.1;
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@media screen and (max-width: 480px) {
+  .modal__content {
+    scale: 0.8;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .modal__content{
+    margin: auto 0px;
+  }
+}
+
+@media screen and (max-width: 350px){
+  .modal__content{
+    scale: 0.7;
+    padding: 30px;
+  }
+  .modal__close-button{
+    top: 28px;
+  }
+}

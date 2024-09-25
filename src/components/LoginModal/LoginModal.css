@@ -1,0 +1,62 @@
+.modal__input {
+  display: flex;
+  background-color: white;
+  font-size: 16px;
+  padding: 20px 24px;
+  color: black;
+  margin-bottom: 20px;
+  border-radius: 30px;
+}
+
+.modal__or-text {
+  position: absolute;
+  bottom: 42px;
+  left: 170px;
+}
+
+.modal__signup {
+  position: absolute;
+  bottom: 40px;
+  left: 200px;
+  font-size: 18px;
+  padding: 18px 32px;
+  width: max-content;
+  height: 60px;
+  background-color: white;
+  border-radius: 30px;
+  color: rgba(47, 113, 229, 1);
+  border: 2px solid rgba(47, 113, 229, 1);
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  opacity: 0.5;
+}
+
+.modal__signup:hover {
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  color: white;
+  background-color: rgba(47, 113, 229, 1);
+  opacity: 1;
+}
+
+@media screen and (max-width: 480px) {
+  .modal__signup {
+    left: auto;
+    right: 40px;
+  }
+
+  .modal__or-text {
+    left: auto;
+    right: 50%;
+  }
+}
+
+@media screen and (max-width: 350px){
+    .modal__signup{
+        left: auto;
+        right: 30px;
+        bottom: 30px;
+    }
+
+    .modal__or-text{
+        bottom: 33px;
+    }
+}
