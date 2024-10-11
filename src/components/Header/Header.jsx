@@ -7,9 +7,6 @@ import pan_icon from "../../assets/pan_icon.png";
 import chefhat_icon from "../../assets/chefhat_icon.png";
 import { useState, useEffect } from "react";
 
-// if logged in, display another nav item called "favorites"
-// that lists the favorite recipes
-
 function Header({ setActiveModal, isLoggedIn }) {
   const [sandwichActive, setSandwichActive] = useState(false);
   const [smallWindow, setSmallWindow] = useState(false);
