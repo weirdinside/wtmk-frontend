@@ -5,16 +5,81 @@ import spatula_icon from "../../assets/spatula_icon.png";
 import whisk_icon from "../../assets/whisk_icon.png";
 import pan_icon from "../../assets/pan_icon.png";
 import chefhat_icon from "../../assets/chefhat_icon.png";
+import { useState, useEffect } from "react";
 
 // if logged in, display another nav item called "favorites"
 // that lists the favorite recipes
 
 function Header({ setActiveModal, isLoggedIn }) {
+  const [sandwichActive, setSandwichActive] = useState(false);
+  const [smallWindow, setSmallWindow] = useState(false);
+  const [activeClass, setActiveClass] = useState("");
+
+  function toggleMenu() {
+    if (activeClass === "active") {
+      setSandwichActive(false);
+      return setActiveClass("");
+    }
+    if (activeClass === "") {
+      setSandwichActive(true);
+      return setActiveClass("active");
+    }
+  }
+
+  useEffect(() => {
+    if (window.innerWidth <= 620) {
+      setSmallWindow(true);
+    } else {
+      setSmallWindow(false);
+    }
+  }, [window.innerWidth]);
+
   return (
     <header className="header">
+      {smallWindow ? (
+        <div
+          onClick={toggleMenu}
+          className={`header__sandwich_button ${activeClass}`}
+        >
+          <div className={`header__sandwich_button_seg1 ${activeClass}`}></div>
+          <div className={`header__sandwich_button_seg2 ${activeClass}`}></div>
+          <div className={`header__sandwich_button_seg3 ${activeClass}`}></div>
+        </div>
+      ) : null}
+      <div
+        className={`header__sandwich ${activeClass}`}
+      >
+        <nav className="header__sandwich_nav">
+          <Link to="/recipes" style={{ color: "black" }}>
+            <p onClick={toggleMenu} className="header__sandwich_nav_item">recipe finder</p>
+          </Link>
+          <Link to="/about" style={{ color: "black" }}>
+            <p onClick={toggleMenu} className="header__sandwich_nav_item">about</p>
+          </Link>
+          <div className="header__sandwich_user-actions">
+            <button
+              onClick={() => {
+                setActiveModal("login");
+                toggleMenu();
+              }}
+              className="header__sandwich_login"
+            >
+              sign in
+            </button>
+            <button
+              onClick={() => {
+                setActiveModal("register");
+              }}
+              className="header__sandwich_register"
+            >
+              register
+            </button>
+          </div>
+        </nav>
+      </div>
       <div className="header__logo">
         <Link style={{ color: "black" }} to="/">
-          <p className="header__logo_text">wtmk</p>
+          <p onClick={sandwichActive ? toggleMenu : null} className="header__logo_text">wtmk</p>
         </Link>
         <div className="header__logo_border"></div>
         <div className="header__logo_item header__item_bottom">~</div>
@@ -45,11 +110,11 @@ function Header({ setActiveModal, isLoggedIn }) {
         ) : null}
 
         <Link style={{ color: "black" }} to="/recipes">
-          <p className="header__nav_item">recipes</p>
+          <p onClick={toggleMenu} className="header__nav_item">recipe finder</p>
         </Link>
 
         <Link style={{ color: "black" }} to="/about">
-          <p className="header__nav_item">about</p>
+          <p onClick={toggleMenu} className="header__nav_item">about</p>
         </Link>
       </nav>
       <button

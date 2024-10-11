@@ -1,42 +1,148 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./RecipePage.css";
+import { stringifyRecipe } from "../../utils/functions";
 
 import recipeRequest from "../../utils/ThirdPartyAPI";
 
-function recipepage() {
+function RecipePage({ setActivePhoto, recipe, openPreview }) {
   const [instructionsView, setInstructionsView] = useState("list");
   const [currentStep, setCurrentStep] = useState(0);
+  const [recipeImage, setRecipeImage] = useState("");
+  const [recipeSteps, setRecipeSteps] = useState(<></>);
+  const [recipeIngredients, setRecipeIngredients] = useState(<></>);
 
+  function timeConversion() {
+    if (recipe.readyInMinutes >= 60) {
+      return `${Math.floor(recipe.readyInMinutes / 60)} hour${
+        recipe.readyInMinutes >= 120 ? "s" : ""
+      } and ${recipe.readyInMinutes % 60} minutes`;
+    } else {
+      return `${recipe.readyInMinutes} minutes`;
+    }
+  }
+
+  function toggleClass(e) {
+    e.stopPropagation();
+    const customClass = "steps-list__crossed-out";
+    const instructions = e.currentTarget.children[1];
+    e.currentTarget.classList.toggle(customClass);
+    if (e.currentTarget.classList.contains(customClass)) {
+      instructions.classList.add("steps-list__hidden");
+    } else {
+      instructions.classList.remove("steps-list__hidden");
+    }
+  }
+
+  function toggleStep(operation) {
+    if (
+      operation === "+" &&
+      currentStep < recipe.analyzedInstructions[0].steps.length - 1
+    ) {
+      setCurrentStep(currentStep + 1);
+    }
+    if (operation === "-" && currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
+  }
+
+  useEffect(() => {
+    if (recipe.extendedIngredients) {
+      setRecipeIngredients(
+        recipe.extendedIngredients.map((ingredient) => {
+          return (
+            <p className="recipepage__ingredients_item" key={ingredient.name}>
+              {ingredient.original}
+            </p>
+          );
+        }),
+      );
+    }
+  }, [recipe.extendedIngredients]);
+
+  useEffect(() => {
+    setRecipeImage(recipe.image);
+    // there needs to be a conditional here to check if analyzedInstructions has property steps
+    if (recipe.analyzedInstructions?.length > 0) {
+      setRecipeSteps(recipeStepRenderer());
+    }
+  }, [recipe, instructionsView, currentStep, recipe.analyzedInstructions]);
+
+  function recipeStepRenderer() {
+    if (recipe.analyzedInstructions.length === 0) {
+      return;
+    }
+    if (instructionsView === "list") {
+      return (
+        <div className="recipepage__steps-list">
+          {recipe.analyzedInstructions[0].steps.map((step) => {
+            return (
+              <div onClick={toggleClass}>
+                <h3 className="steps-list__step">step #{step.number}</h3>
+                <p className="steps-list__text">{step.step}</p>
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
+    if (instructionsView === "steps") {
+      return (
+        <div className="recipepage__steps-seq">
+          <h3 className="steps-seq__step">
+            step #{recipe.analyzedInstructions[0].steps[currentStep].number}
+          </h3>
+          <div
+            onClick={() => {
+              toggleStep("-");
+            }}
+            className="steps-seq__arrow arrow_back"
+          ></div>
+          <div
+            onClick={() => {
+              toggleStep("+");
+            }}
+            className="steps-seq__arrow arrow_forward"
+          ></div>
+          <p className="steps-seq__text">
+            {recipe.analyzedInstructions[0].steps[currentStep].step}
+          </p>
+        </div>
+      );
+    }
+  }
+
+  // main return
   return (
     <div className="recipepage">
       <h1 className="recipepage__heading">
-        recipe title
-        <button className="recipepage__source">source</button>
+        {recipe.title}
+        <a target="_blank" href={recipe.sourceUrl}>
+          <button className="recipepage__source">source</button>
+        </a>
       </h1>
 
-      <h2 className="recipepage__author">by recipe author</h2>
+      <h2 className="recipepage__author">from {recipe.sourceName}</h2>
       <div className="recipepage__recipe">
         <div className="recipepage__description">
-          <p className="recipepage__description_item">recipe time</p>
-          <p className="recipepage__description_item">recipe serves</p>
           <p className="recipepage__description_item">
-            Red Lentil Soup with Chicken and Turnips might be a good recipe to
-            expand your main course repertoire. This recipe serves 8 and costs
-            $3.0 per serving. One serving contains <b>477 calories</b>,{" "}
-            <b>27g of protein</b>, and <b>20g of fat</b>. It is brought to you
-            by Pink When. 1866 people have tried and liked this recipe. It can
-            be enjoyed any time, but it is especially good for <b>Autumn</b>.
-            From preparation to the plate, this recipe takes approximately{" "}
-            <b>55 minutes</b>. It is a good option if you're following a{" "}
-            <b>gluten free and dairy free</b> diet. Head to the store and pick
-            up salt and pepper, canned tomatoes, flat leaf parsley, and a few
-            other things to make it today. Overall, this recipe earns a{" "}
-            <b>spectacular spoonacular score of 99%</b>.
+            ready in: {timeConversion()}
           </p>
+          <p className="recipepage__description_item">
+            serves: {recipe.servings}
+          </p>
+          <p className="recipepage__description_item">{stringifyRecipe(recipe)}</p>
         </div>
-        <img alt="recipe image" className="recipepage__image"></img>
+        <div
+          onClick={() => {
+            setActivePhoto({ image: recipeImage, source: recipe.sourceName });
+            openPreview();
+          }}
+          style={{ backgroundImage: `url(${recipeImage})` }}
+          className="recipepage__image"
+        ></div>
       </div>
+
       <div className="recipepage__view-options">
         <p className="recipepage__view-buttons_heading">view instructions as</p>
         <button
@@ -60,32 +166,17 @@ function recipepage() {
           list
         </button>
       </div>
+
       <div className="recipepage__prep">
-        <div className="recipepage__ingredients"></div>
-        {instructionsView === "steps" ? (
-          <div className="recipepage__steps-seq">
-            <h3 className="steps-seq__step">step # x</h3>
-            <div className="steps-seq__arrow arrow_back"></div>
-            <div className="steps-seq__arrow arrow_forward"></div>
-            <p className="steps-seq__text">
-              To a large dutch oven or soup pot, heat the olive oil over medium
-              heat.
-            </p>
-          </div>
-        ) : (
-          <div className="recipepage__steps-list">
-            {/* for each step, render the following and cycle based on arrow inputs */}
-            <h3 className="steps-list__step">step # x</h3>
-            <p className="steps-list__text">
-              {" "}
-              To a large dutch oven or soup pot, heat the olive oil over medium
-              heat.
-            </p>
-          </div>
-        )}
+        <h2 className="recipepage__ingredients_title">
+          ingredients{" "}
+          <div className="recipepage__ingredients">{recipeIngredients}</div>
+        </h2>
+
+        {recipeSteps}
       </div>
     </div>
   );
 }
 
-export default recipepage;
+export default RecipePage;

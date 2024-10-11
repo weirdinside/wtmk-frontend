@@ -1,26 +1,22 @@
-const parameter = ""
-const apiKey = "89dd614867924aa8b387405137cca662"
-const baseUrl = "https://api.spoonacular.com/recipes/complexSearch"
+const parameter = "";
+const apiKey = import.meta.env.VITE_API_KEY;
+const baseUrl = "https://api.spoonacular.com/recipes/complexSearch";
 
-function recipeRequest(searchTerm){
-    return fetch(`${baseUrl}?apiKey=${apiKey}&query=${searchTerm}&addRecipeInstructions=true&addRecipeInformation=true&number=10000`).then((res)=>{
-        if(res.ok){
-            console.log(res);
-            return res.json();
-            
-        }
-        else{
-            return Promise.reject(`Error: ${res.error}`);
-        }
-    }).then((data)=>{
-        console.log(data)
+function recipeRequest({ cuisines, diets, allergies, time }) {
+  return fetch(
+    `${baseUrl}?apiKey=${apiKey}&cuisine=${String(cuisines)}&diet=${String(
+      diets,
+    )}&excludeIngredients=${String(
+      allergies,
+    )}&maxReadyTime=${time}&addRecipeInstructions=true&addRecipeInformation=true&number=100`,
+  )
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`Error: ${res.error}`);
+      }
     })
 }
 
 export default recipeRequest;
-
-// notes on setting up the API
-// data.results is going to show an array of recipes
-// using an index of results is going to show you a specific recipe
-// .vegetarian, .vegan, .glutenFree and .dairyFree are dietary pointers
-// .pr
