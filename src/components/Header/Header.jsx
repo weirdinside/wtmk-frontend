@@ -9,7 +9,6 @@ import { useState, useEffect } from "react";
 
 function Header({ setActiveModal, isLoggedIn }) {
   const [sandwichActive, setSandwichActive] = useState(false);
-  const [smallWindow, setSmallWindow] = useState(false);
   const [activeClass, setActiveClass] = useState("");
 
   function toggleMenu() {
@@ -23,17 +22,13 @@ function Header({ setActiveModal, isLoggedIn }) {
     }
   }
 
-  useEffect(() => {
-    if (window.innerWidth <= 620) {
-      setSmallWindow(true);
-    } else {
-      setSmallWindow(false);
-    }
-  }, [window.innerWidth]);
+  function closeMenu(){
+    setSandwichActive(false);
+    return setActiveClass('');
+  }
 
   return (
     <header className="header">
-      {smallWindow ? (
         <div
           onClick={toggleMenu}
           className={`header__sandwich_button ${activeClass}`}
@@ -42,16 +37,15 @@ function Header({ setActiveModal, isLoggedIn }) {
           <div className={`header__sandwich_button_seg2 ${activeClass}`}></div>
           <div className={`header__sandwich_button_seg3 ${activeClass}`}></div>
         </div>
-      ) : null}
       <div
         className={`header__sandwich ${activeClass}`}
       >
         <nav className="header__sandwich_nav">
           <Link to="/recipes" style={{ color: "black" }}>
-            <p onClick={toggleMenu} className="header__sandwich_nav_item">recipe finder</p>
+            <p onClick={closeMenu} className="header__sandwich_nav_item">recipe finder</p>
           </Link>
           <Link to="/about" style={{ color: "black" }}>
-            <p onClick={toggleMenu} className="header__sandwich_nav_item">about</p>
+            <p onClick={closeMenu} className="header__sandwich_nav_item">about</p>
           </Link>
           <div className="header__sandwich_user-actions">
             <button
@@ -107,11 +101,11 @@ function Header({ setActiveModal, isLoggedIn }) {
         ) : null}
 
         <Link style={{ color: "black" }} to="/recipes">
-          <p onClick={toggleMenu} className="header__nav_item">recipe finder</p>
+          <p className="header__nav_item">recipe finder</p>
         </Link>
 
         <Link style={{ color: "black" }} to="/about">
-          <p onClick={toggleMenu} className="header__nav_item">about</p>
+          <p className="header__nav_item">about</p>
         </Link>
       </nav>
       <button
