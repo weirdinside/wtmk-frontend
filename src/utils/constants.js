@@ -42,14 +42,13 @@ export const diets = [
 ];
 
 export const allergies = [
-    "peanuts",
-    "tree nuts",
-    "milk",
-    "eggs",
-    "wheat",
-    "soy",
-    "fish",
-    "shellfish",
-    "sesame",
-  ];
-  
+  "peanuts",
+  "tree nuts",
+  "milk",
+  "eggs",
+  "wheat",
+  "soy",
+  "fish",
+  "shellfish",
+  "sesame",
+];
