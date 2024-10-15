@@ -60,13 +60,15 @@
 }
 
 .header {
+
   margin: 0;
   position: fixed;
   z-index: 4;
   top: 0;
   padding: 0;
   height: 80px;
-  width: 100vw;
+  width: 100%;
+  max-width: 1500px;
   background-color: #e9e9e9;
   display: flex;
 }
@@ -80,6 +82,7 @@
   position: relative;
   transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   margin-left: 55px;
+  width: max-content;
   z-index: 1;
   scale: 1.2;
 }

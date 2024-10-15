@@ -7,10 +7,8 @@ import LoginModal from "../LoginModal/LoginModal";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import About from "../About/About";
-import Recipes from "../RecipeFinder/RecipeFinder";
 import NewTabOverlay from "../NewTabOverlay/NewTabOverlay";
 import PreviewModal from "../PreviewModal/PreviewModal";
-import recipeRequest from "../../utils/ThirdPartyAPI";
 import RecipeFinder from "../RecipeFinder/RecipeFinder";
 
 function App() {
@@ -48,8 +46,7 @@ function App() {
           element={<Main setActivePhoto={setActivePhoto} openPreview={openPreview}></Main>}
         ></Route>
         <Route path="/about" element={<About></About>}></Route>
-        <Route path="/recipes" element={<RecipeFinder></RecipeFinder>}></Route>
-        <Route path="/api" element={<></>}></Route>
+        <Route path="/api" element={<RecipeFinder></RecipeFinder>}></Route>
       </Routes>
 
       <LoginModal

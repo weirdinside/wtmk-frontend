@@ -207,13 +207,14 @@
 .recipepage__ingredients_item{
   margin: 2px 0;
   padding: 0;
+  text-decoration: none;
 }
 
 .recipepage__steps-list{
   display: flex;
   flex-direction: column;
   margin: 20px;
-  width: 120%;
+  width: 80%;
 }
 
 .steps-list__step {

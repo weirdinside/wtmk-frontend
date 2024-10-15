@@ -1,4 +1,3 @@
-import React from "react";
 import "./NewTabOverlay.css";
 
 function NewTabOverlay() {

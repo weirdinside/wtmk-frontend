@@ -1,11 +1,10 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import spatula_icon from "../../assets/spatula_icon.png";
 import whisk_icon from "../../assets/whisk_icon.png";
 import pan_icon from "../../assets/pan_icon.png";
 import chefhat_icon from "../../assets/chefhat_icon.png";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function Header({ setActiveModal, isLoggedIn }) {
   const [sandwichActive, setSandwichActive] = useState(false);
@@ -41,7 +40,7 @@ function Header({ setActiveModal, isLoggedIn }) {
         className={`header__sandwich ${activeClass}`}
       >
         <nav className="header__sandwich_nav">
-          <Link to="/recipes" style={{ color: "black" }}>
+          <Link to="/api" style={{ color: "black" }}>
             <p onClick={closeMenu} className="header__sandwich_nav_item">recipe finder</p>
           </Link>
           <Link to="/about" style={{ color: "black" }}>
@@ -100,7 +99,7 @@ function Header({ setActiveModal, isLoggedIn }) {
           </Link>
         ) : null}
 
-        <Link style={{ color: "black" }} to="/recipes">
+        <Link style={{ color: "black" }} to="/api">
           <p className="header__nav_item">recipe finder</p>
         </Link>
 
