@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   margin: 10px auto;
-  width: calc(100vw - 80px);
   height: 230px;
   background-color: aliceblue;
   border-radius: 20px;
@@ -30,11 +29,13 @@
 }
 
 .recipecard__image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   border-radius: 10px;
   margin: auto 10px 10px;
   height: 160px;
   width: 35%;
-  background-color: red;
 }
 
 .recipecard__source {
