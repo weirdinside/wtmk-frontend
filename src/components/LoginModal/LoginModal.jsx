@@ -13,10 +13,12 @@ function LoginModal({ closeModal, setActiveModal, activeModal, onSubmit }) {
       submitText="log in"
       formTitle="Log In"
     >
-      <input placeholder="Username" className="modal__input"></input>
-      <input placeholder="Password" className="modal__input"></input>
-      <p className="modal__or-text">or</p>
-      <button className="modal__signup">sign up</button>
+      <input placeholder="Username" className="login-modal__input"></input>
+      <input placeholder="Password" className="login-modal__input"></input>
+      <p className="login-modal__or-text">or</p>
+      <button onClick={()=>{
+        setActiveModal('register')
+      }} className="login-modal__signup">sign up</button>
     </ModalWithForm>
   );
 }

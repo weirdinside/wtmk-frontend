@@ -50,8 +50,9 @@ function RecipePage({ setActivePhoto, recipe, openPreview }) {
     if (recipe.extendedIngredients) {
       setRecipeIngredients(
         recipe.extendedIngredients.map((ingredient) => {
+          console.log(ingredient)
           return (
-            <p className="recipepage__ingredients_item" key={ingredient.name}>
+            <p className="recipepage__ingredients_item" key={`${ingredient.id}${ingredient.original}`}>
               {ingredient.original}
             </p>
           );
@@ -77,7 +78,7 @@ function RecipePage({ setActivePhoto, recipe, openPreview }) {
         <div className="recipepage__steps-list">
           {recipe.analyzedInstructions[0].steps.map((step) => {
             return (
-              <div onClick={toggleClass}>
+              <div key={`step${step.number}`} onClick={toggleClass}>
                 <h3 className="steps-list__step">step #{step.number}</h3>
                 <p className="steps-list__text">{step.step}</p>
               </div>
@@ -131,7 +132,9 @@ function RecipePage({ setActivePhoto, recipe, openPreview }) {
           <p className="recipepage__description_item">
             serves: {recipe.servings}
           </p>
-          <p className="recipepage__description_item">{stringifyRecipe(recipe)}</p>
+          <p className="recipepage__description_item">
+            {stringifyRecipe(recipe)}
+          </p>
         </div>
         <div
           onClick={() => {

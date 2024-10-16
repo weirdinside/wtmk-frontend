@@ -1,4 +1,4 @@
-.modal__input {
+.login-modal__input {
   display: flex;
   background-color: white;
   font-size: 16px;
@@ -8,13 +8,13 @@
   border-radius: 30px;
 }
 
-.modal__or-text {
+.login-modal__or-text {
   position: absolute;
   bottom: 42px;
   left: 170px;
 }
 
-.modal__signup {
+.login-modal__signup {
   position: absolute;
   bottom: 40px;
   left: 200px;
@@ -30,7 +30,7 @@
   opacity: 0.5;
 }
 
-.modal__signup:hover {
+.login-modal__signup:hover {
   transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   color: white;
   background-color: rgba(47, 113, 229, 1);
