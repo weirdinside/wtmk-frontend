@@ -7,7 +7,7 @@ import "./index.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter basename="/wtmk-frontend">
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </StrictMode>,

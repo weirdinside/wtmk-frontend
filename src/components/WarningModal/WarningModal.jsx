@@ -5,7 +5,6 @@ function WarningModal({ activeModal, closeModal }) {
   const isOpen = activeModal === "warning";
 
   function handleClickAway(e) {
-    console.log(e);
     if (e.target.classList.contains("warning-modal")) {
       e.stopPropagation();
       closeModal();

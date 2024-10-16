@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "./RecipeFinder.css";
 import { CSSTransition } from "react-transition-group";
 import recipeRequest from "../../utils/ThirdPartyAPI";
@@ -51,7 +51,7 @@ function RecipeFinder() {
   }
 
   function renderRecipes(recipeList) {
-    console.log(recipeList);
+
     if (typeof recipeList === "object") {
       if (recipeList.length === 0) {
         return (
@@ -72,10 +72,10 @@ function RecipeFinder() {
   function handleInputChange(event) {
     let value = event.target.value;
     if (value.match(/[^a-zA-Z\s,]/g)) {
-      console.log("nope!");
+
       setErrorActive(true);
     } else {
-      console.log("you good");
+
       setErrorActive(false);
     }
     const sanitizedValue = value.replace(/[^a-zA-Z\s,]/g, "");
@@ -347,7 +347,7 @@ function RecipeFinder() {
                 setCheckedAllergies(
                   checkedAllergies.concat(inputValue.split(",")),
                 );
-                console.log(checkedAllergies);
+
                 setStage(4);
               }}
               className="recipefinder__next-stage-button"
@@ -395,12 +395,6 @@ function RecipeFinder() {
             </button>
             <button
               onClick={() => {
-                console.log(
-                  checkedCuisines,
-                  checkedDiets,
-                  checkedAllergies,
-                  time,
-                );
                 handleSubmit();
                 setStage(5);
               }}

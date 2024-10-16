@@ -14,12 +14,12 @@
 
 .about__text_title {
   margin: 0;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
 }
 
 .about__text_description {
   font-size: 18px;
-  font-family: "Inter";
+  font-family: "Inter", sans-serif;
 }
 
 .about__text_description_link {

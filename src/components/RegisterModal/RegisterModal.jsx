@@ -5,13 +5,18 @@ import "./RegisterModal.css"
 function RegisterModal({closeModal, setActiveModal, activeModal}){
   const isOpen = activeModal === 'register';
 
+  function handleSubmit(){
+    setActiveModal('warning')
+  }
+
     return (
     <ModalWithForm
+       onSubmit={handleSubmit}
       closeModal={closeModal}
       setActiveModal={setActiveModal}
       isOpen={isOpen}
-      submitText="Sign up"
-      formTitle="Sign Up"
+      submitText="sign up"
+      formTitle="sign up"
     >
       <input placeholder="Username" className="register-modal__input"></input>
       <input placeholder="Password" className="register-modal__input"></input>

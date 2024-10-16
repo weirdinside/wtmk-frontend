@@ -1,4 +1,3 @@
-const parameter = "";
 const apiKey = import.meta.env.VITE_API_KEY;
 const baseUrl = "https://api.spoonacular.com/recipes/complexSearch";
 

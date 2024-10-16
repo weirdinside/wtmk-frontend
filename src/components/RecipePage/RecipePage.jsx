@@ -50,7 +50,6 @@ function RecipePage({ setActivePhoto, recipe, openPreview }) {
     if (recipe.extendedIngredients) {
       setRecipeIngredients(
         recipe.extendedIngredients.map((ingredient) => {
-          console.log(ingredient)
           return (
             <p className="recipepage__ingredients_item" key={`${ingredient.id}${ingredient.original}`}>
               {ingredient.original}
