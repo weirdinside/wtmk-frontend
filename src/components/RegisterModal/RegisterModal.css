@@ -6,6 +6,7 @@
   color: black;
   margin-bottom: 20px;
   border-radius: 30px;
+  width: calc(100% - 60px);
 }
 
 .register-modal__or-text {

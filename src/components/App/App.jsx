@@ -21,8 +21,7 @@ function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [activePhoto, setActivePhoto] = useState({ image: null, source: null });
 
-  function onSubmit(e) {
-    e.preventDefault();
+  function onSubmit() {
     setActiveModal("warning");
   }
 
