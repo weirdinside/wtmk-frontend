@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /wtmk-frontend/
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /wtmk-frontend/index.html [L]

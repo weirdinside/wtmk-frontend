@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "Cabinet-Grotesk-Black";
+  src: url(../../vendor/fonts/CabinetGrotesk-Black.woff);
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(../../vendor/fonts/roboto-700.woff2);
+}
+
+.about {
+  margin: 20px 40px;
+}
+
+.about__text_title {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.about__text_description {
+  font-size: 18px;
+  font-family: "Inter", sans-serif;
+}
+
+.about__text_description_link {
+  color: green;
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  padding: 4px;
+  border-radius: 20px;
+}
+
+.about__text_description_link:hover {
+  background-color: rgba(47, 113, 229, 1);
+  border-radius: 20px;
+  text-decoration: underline;
+  color: white;
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

@@ -1,8 +1,6 @@
-# React + Vite
+# wtmk (frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+wtmk is a website that helps users figure out what to eat, based on preferences and dietary restrictions. this website was developed during the TripleTen software engineer bootcamp, and communicates with the spoonacular API (https://spoonacular.com/food-api) to retrieve recipes.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+view a deployment of the project here: https://weirdinside.github.io/wtmk-frontend
+notes: login is currently not supported, as there is no backend yet
