@@ -57,21 +57,20 @@
   transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-@media screen and (max-width: 450px){
-
-  .recipecard__title{
+@media screen and (max-width: 450px) {
+  .recipecard__title {
     font-size: 15px;
   }
 
-  .recipefinder__recipecards{
+  .recipefinder__recipecards {
     padding-top: 110px;
   }
 
-  .recipecard__description{
+  .recipecard__description {
     opacity: 0;
     visibility: hidden;
   }
-  .recipecard__image{
+  .recipecard__image {
     position: absolute;
     width: calc(100% - 40px);
     bottom: 10px;

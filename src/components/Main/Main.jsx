@@ -39,7 +39,7 @@ function Main({ setActivePhoto, openPreview }) {
   }, [randomBackgroundImage, bgImage]);
 
   return (
-    <div className="main">
+    <main className="main">
       <div className="main__heading" style={backgroundImage}>
         <div className="main__heading_chef-hat"></div>
         <div className="main__heading_cover"></div>
@@ -53,7 +53,7 @@ function Main({ setActivePhoto, openPreview }) {
         recipeSrc={randomRecipe.sourceUrl}
         recipeTitle={randomRecipe.title}
       ></RecipePage>
-    </div>
+    </main>
   );
 }
 

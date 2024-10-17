@@ -1,0 +1,56 @@
+.modal {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.195);
+  z-index: 9;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.modal_opened {
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  padding: 40px;
+  width: 480px;
+  background-color: white;
+  z-index: 10;
+  margin: auto 20px;
+}
+
+.modal__close {
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border: 2px solid #00000000;
+  position: absolute;
+  right: 40px;
+  background-color: #00000000;
+  height: 40px;
+  width: 40px;
+  right: 32px;
+  top: 32px;
+  background: center no-repeat url(../../assets/close_button.svg);
+}
+
+.modal__close:hover {
+  border: 2px solid rgba(47, 113, 229, 1);
+  border-radius: 50px;
+  rotate: 360deg;
+  scale: 1.1;
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

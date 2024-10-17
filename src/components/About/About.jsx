@@ -13,7 +13,13 @@ function About() {
           eat, based on your preferences and dietary restrictions. This website
           was designed and developed by Anirudh Bharadwaj during the TripleTen
           software engineer bootcamp, and communicates with the{" "}
-          <a target="_blank" className="about__text_description_link" href="https://spoonacular.com">spoonacular API</a>{" "}
+          <a
+            target="_blank"
+            className="about__text_description_link"
+            href="https://spoonacular.com"
+          >
+            spoonacular API
+          </a>{" "}
           to retrieve recipes based on the filters that the user inputs.
         </p>
       </div>

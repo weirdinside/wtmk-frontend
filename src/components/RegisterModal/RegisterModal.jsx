@@ -1,31 +1,33 @@
 import React from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "./RegisterModal.css"
+import "./RegisterModal.css";
 
-function RegisterModal({closeModal, setActiveModal, activeModal}){
-  const isOpen = activeModal === 'register';
+function RegisterModal({ onSubmit, closeModal, setActiveModal, activeModal }) {
+  const isOpen = activeModal === "register";
 
-  function handleSubmit(){
-    setActiveModal('warning')
-  }
-
-    return (
+  return (
     <ModalWithForm
-       onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       closeModal={closeModal}
       setActiveModal={setActiveModal}
-      isOpen={isOpen}
       submitText="sign up"
       formTitle="sign up"
+      isOpen={isOpen}
     >
       <input placeholder="Username" className="register-modal__input"></input>
       <input placeholder="Password" className="register-modal__input"></input>
       <p className="register-modal__or-text">or</p>
-      <button onClick={()=>{
-        setActiveModal('login')
-      }} className="register-modal__login">log in</button>
+      <button
+        type="button"
+        onClick={() => {
+          setActiveModal("login");
+        }}
+        className="register-modal__login"
+      >
+        log in
+      </button>
     </ModalWithForm>
-    )
+  );
 }
 
 export default RegisterModal;

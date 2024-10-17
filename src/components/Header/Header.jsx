@@ -21,30 +21,32 @@ function Header({ setActiveModal, isLoggedIn }) {
     }
   }
 
-  function closeMenu(){
+  function closeMenu() {
     setSandwichActive(false);
-    return setActiveClass('');
+    return setActiveClass("");
   }
 
   return (
     <header className="header">
-        <div
-          onClick={toggleMenu}
-          className={`header__sandwich_button ${activeClass}`}
-        >
-          <div className={`header__sandwich_button_seg1 ${activeClass}`}></div>
-          <div className={`header__sandwich_button_seg2 ${activeClass}`}></div>
-          <div className={`header__sandwich_button_seg3 ${activeClass}`}></div>
-        </div>
       <div
-        className={`header__sandwich ${activeClass}`}
+        onClick={toggleMenu}
+        className={`header__sandwich_button ${activeClass}`}
       >
+        <div className={`header__sandwich_button_seg1 ${activeClass}`}></div>
+        <div className={`header__sandwich_button_seg2 ${activeClass}`}></div>
+        <div className={`header__sandwich_button_seg3 ${activeClass}`}></div>
+      </div>
+      <div className={`header__sandwich ${activeClass}`}>
         <nav className="header__sandwich_nav">
           <Link to="/api" style={{ color: "black" }}>
-            <p onClick={closeMenu} className="header__sandwich_nav_item">recipe finder</p>
+            <p onClick={closeMenu} className="header__sandwich_nav_item">
+              recipe finder
+            </p>
           </Link>
           <Link to="/about" style={{ color: "black" }}>
-            <p onClick={closeMenu} className="header__sandwich_nav_item">about</p>
+            <p onClick={closeMenu} className="header__sandwich_nav_item">
+              about
+            </p>
           </Link>
           <div className="header__sandwich_user-actions">
             <button
@@ -69,7 +71,12 @@ function Header({ setActiveModal, isLoggedIn }) {
       </div>
       <div className="header__logo">
         <Link style={{ color: "black" }} to="/">
-          <p onClick={sandwichActive ? toggleMenu : null} className="header__logo_text">wtmk</p>
+          <p
+            onClick={sandwichActive ? toggleMenu : null}
+            className="header__logo_text"
+          >
+            wtmk
+          </p>
         </Link>
         <div className="header__logo_border"></div>
         <div className="header__logo_item header__item_bottom">~</div>

@@ -10,15 +10,21 @@ function LoginModal({ closeModal, setActiveModal, activeModal, onSubmit }) {
       setActiveModal={setActiveModal}
       isOpen={isOpen}
       onSubmit={onSubmit}
-      submitText="log in"
-      formTitle="Log In"
+      submitText="sign in"
+      formTitle="sign in"
     >
       <input placeholder="Username" className="login-modal__input"></input>
       <input placeholder="Password" className="login-modal__input"></input>
       <p className="login-modal__or-text">or</p>
-      <button onClick={()=>{
-        setActiveModal('register')
-      }} className="login-modal__signup">sign up</button>
+      <button
+        type="button"
+        onClick={() => {
+          setActiveModal("register");
+        }}
+        className="login-modal__signup"
+      >
+        sign up
+      </button>
     </ModalWithForm>
   );
 }

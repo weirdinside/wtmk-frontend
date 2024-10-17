@@ -209,13 +209,12 @@
   transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.header__sandwich.active{
+.header__sandwich.active {
   visibility: visible;
   height: 100%;
   transform: translateY(0%);
   transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-  
 
 .header__sandwich_button {
   visibility: hidden;
@@ -415,7 +414,6 @@
 }
 
 @media screen and (max-width: 620px) {
-
   .header__nav {
     visibility: hidden;
   }
@@ -433,7 +431,7 @@
     visibility: visible;
   }
 
-  .header__sandwich_button{
+  .header__sandwich_button {
     visibility: visible;
   }
 }

@@ -51,7 +51,6 @@ function RecipeFinder() {
   }
 
   function renderRecipes(recipeList) {
-
     if (typeof recipeList === "object") {
       if (recipeList.length === 0) {
         return (
@@ -62,7 +61,7 @@ function RecipeFinder() {
         );
       }
       return recipeList.map((recipe) => {
-        return <RecipeCard recipe={recipe}></RecipeCard>;
+        return <RecipeCard key={recipe.title} recipe={recipe}></RecipeCard>;
       });
     } else {
       return <p>oops! error</p>;
@@ -72,10 +71,8 @@ function RecipeFinder() {
   function handleInputChange(event) {
     let value = event.target.value;
     if (value.match(/[^a-zA-Z\s,]/g)) {
-
       setErrorActive(true);
     } else {
-
       setErrorActive(false);
     }
     const sanitizedValue = value.replace(/[^a-zA-Z\s,]/g, "");

@@ -7,6 +7,8 @@ import LoginModal from "../LoginModal/LoginModal";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import WarningModal from "../WarningModal/WarningModal";
 
+import Modal from "../Modal/Modal";
+
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import About from "../About/About";
@@ -19,7 +21,8 @@ function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [activePhoto, setActivePhoto] = useState({ image: null, source: null });
 
-  function onSubmit() {
+  function onSubmit(e) {
+    e.preventDefault();
     setActiveModal("warning");
   }
 
@@ -85,8 +88,9 @@ function App() {
         activePhoto={activePhoto}
         activeModal={activeModal}
       ></PreviewModal>
-      <Footer></Footer>
-      <NewTabOverlay></NewTabOverlay>
+
+      <Footer />
+      <NewTabOverlay />
     </div>
   );
 }

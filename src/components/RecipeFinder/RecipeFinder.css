@@ -5,7 +5,7 @@
   max-width: 1500px;
 }
 
-.recipefinder__stage{
+.recipefinder__stage {
   max-width: 1500px;
   width: 100vw;
 }
@@ -85,7 +85,7 @@
 /* CSSTransition */
 .stage-enter {
   opacity: 0;
-  transform: translateX(400px)
+  transform: translateX(400px);
 }
 .stage-enter-active {
   max-height: max-content;
@@ -103,7 +103,6 @@
   transform: translateX(-400px);
   opacity: 0;
 }
-
 
 .recipefinder__checkboxes {
   display: grid;
@@ -331,17 +330,17 @@ input[type="range" i] {
   transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.recipefinder__recipecards{
+.recipefinder__recipecards {
   margin-top: 0px;
   padding-top: 80px;
 }
 
-.recipefinder__results{
+.recipefinder__results {
   margin: 0px;
   max-width: 1500px;
 }
 
-.recipefinder__reset{
+.recipefinder__reset {
   display: inline-flex;
   max-width: 1460px;
   width: calc(100% - 40px);
@@ -357,16 +356,16 @@ input[type="range" i] {
   z-index: 3;
 }
 
-.recipefinder__failed-results{
-padding-top: 80px;
+.recipefinder__failed-results {
+  padding-top: 80px;
 }
 
-@media screen and (max-width: 450px){
-  .recipefinder__title{
+@media screen and (max-width: 450px) {
+  .recipefinder__title {
     font-size: 30px;
   }
-  
-  .recipefinder__input{
+
+  .recipefinder__input {
     font-size: 20px;
   }
 }

@@ -49,14 +49,14 @@
   }
 }
 
-@media screen and (max-width: 350px){
-    .modal__signup{
-        left: auto;
-        right: 30px;
-        bottom: 30px;
-    }
+@media screen and (max-width: 350px) {
+  .modal__signup {
+    left: auto;
+    right: 30px;
+    bottom: 30px;
+  }
 
-    .modal__or-text{
-        bottom: 33px;
-    }
+  .modal__or-text {
+    bottom: 33px;
+  }
 }

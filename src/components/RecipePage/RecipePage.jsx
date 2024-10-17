@@ -51,7 +51,10 @@ function RecipePage({ setActivePhoto, recipe, openPreview }) {
       setRecipeIngredients(
         recipe.extendedIngredients.map((ingredient) => {
           return (
-            <p className="recipepage__ingredients_item" key={`${ingredient.id}${ingredient.original}`}>
+            <p
+              className="recipepage__ingredients_item"
+              key={`${ingredient.id}${ingredient.original}`}
+            >
               {ingredient.original}
             </p>
           );

@@ -1,22 +1,20 @@
 import React, { useEffect } from "react";
+import Modal from "../Modal/Modal";
 import "./PreviewModal.css";
 
-function PreviewModal({ closeModal, activePhoto, activeModal }) {
+function PreviewModal({ closeModal, activeModal, activePhoto }) {
+  const isOpen = activeModal === "preview";
+
   return (
-    <div
-      className={`modal ${activeModal === "preview" ? "modal_opened" : null}`}
-    >
-      <div className="modal__content">
-      <button onClick={closeModal} className="modal__close-button"></button>
-        <div
-          style={{ backgroundImage: `url(${activePhoto.image})` }}
-          className="preview-modal__photo"
-        ></div>
-        <p className="preview-modal__caption">
-          photo courtesy of {activePhoto.source}
-        </p>
-      </div>
-    </div>
+    <Modal isOpen={isOpen} closeModal={closeModal}>
+      <div
+        style={{ backgroundImage: `url(${activePhoto.image})` }}
+        className="preview-modal__photo"
+      ></div>
+      <p className="preview-modal__caption">
+        photo courtesy of {activePhoto.source}
+      </p>
+    </Modal>
   );
 }
 

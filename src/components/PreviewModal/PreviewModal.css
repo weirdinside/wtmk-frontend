@@ -1,15 +1,14 @@
-.preview-modal__photo{
-    width: 480px;
-    margin-top: 40px;
-    min-height: 440px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 20px;
-
+.preview-modal__photo {
+  width: 480px;
+  margin-top: 40px;
+  min-height: 440px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
 }
 
-.preview-modal__caption{
-    font-size: 15px;
-    margin: 10px auto 0 0;
+.preview-modal__caption {
+  font-size: 15px;
+  margin: 10px auto 0 0;
 }
